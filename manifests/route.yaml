@@ -10,5 +10,5 @@ spec:
     name: hello-world-nextjs-svc
     weight: 100
   port:
-    targetPort: 3000-tcp
+    targetPort: 3000
   wildcardPolicy: None
