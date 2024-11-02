@@ -7,8 +7,8 @@ metadata:
 spec:
   to:
     kind: Service
-    name: hello-world-nextjs-svc
-    weight: 100
+    name: hello-world-nextjs-svc  # Ensure this service exists
   port:
-    targetPort: 3000
+    targetPort: 3000  # Make sure the service exposes this port
   wildcardPolicy: None
+
