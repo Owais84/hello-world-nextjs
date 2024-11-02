@@ -8,10 +8,10 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 80
-      targetPort: 3000
+      port: 80              # The port that the service listens on
+      targetPort: 3000      # The port that your container exposes
   selector:
-    app: hello-world-nextjs
-    deploymentconfig: hello-world-nextjs
-  type: ClusterIP
+    app: hello-world-nextjs  # Ensure this matches the Deployment's labels
+  type: ClusterIP            # Change to NodePort or LoadBalancer if external access is needed
+
 
