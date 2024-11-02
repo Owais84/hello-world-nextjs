@@ -12,6 +12,6 @@ spec:
       targetPort: 3000      # The port that your container exposes
   selector:
     app: hello-world-nextjs  # Ensure this matches the Deployment's labels
-  type: ClusterIP            # Change to NodePort or LoadBalancer if external access is needed
+  type: LoadBalancer            # Change to NodePort or LoadBalancer if external access is needed
 
 
