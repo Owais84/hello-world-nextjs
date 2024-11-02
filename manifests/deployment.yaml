@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: hello-world-nextjs
-          image: owaiskhan84/hello-world-nextjs:latest  # Update to your Docker Hub repo
+          image: owaiskhan84/nextjsp:latest  # Update to your Docker Hub repo
           ports:
             - containerPort: 3000  # Assuming your app runs on port 3000
               protocol: TCP
