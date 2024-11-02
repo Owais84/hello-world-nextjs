@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world-nextjs
+  namespace: webapps  # Ensure you specify the correct namespace
   labels:
     app: hello-world-nextjs
 spec:
-  replicas: 1
+  replicas: 2  # Consider increasing this for redundancy
   selector:
     matchLabels:
       app: hello-world-nextjs
@@ -13,7 +14,6 @@ spec:
     metadata:
       labels:
         app: hello-world-nextjs
-        deploymentconfig: hello-world-nextjs
     spec:
       containers:
         - name: hello-world-nextjs
@@ -21,14 +21,20 @@ spec:
           ports:
             - containerPort: 3000  # Assuming your app runs on port 3000
               protocol: TCP
-          resources: {}
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "500m"
+            limits:
+              memory: "256Mi"
+              cpu: "1"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
-      securityContext: {}
+      securityContext: {}  # Configure if needed
       schedulerName: default-scheduler
   strategy:
     type: RollingUpdate
